@@ -41,6 +41,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// Health Check
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', message: 'Server is healthy' });
+});
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/flats', flatRoutes);
